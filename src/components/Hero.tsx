@@ -16,14 +16,14 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-              Qualidade Premium Garantida
+              As Melhores Ofertas da Internet
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-brand-dark leading-tight mb-6 uppercase italic">
-              Personalizados que <br />
-              <span className="text-brand-red bg-white px-2">vendem por você</span>
+              Achadinhos que <br />
+              <span className="text-brand-red bg-white px-2">você vai amar</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-dark font-medium mb-8 max-w-lg mx-auto lg:mx-0 opacity-90">
-              Transforme suas ideias em produtos incríveis. Canecas, camisetas e brindes com a sua cara e entrega recorde.
+              Curadoria exclusiva dos melhores produtos com preços imperdíveis. Economize tempo e dinheiro com nossas seleções diárias.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto bg-brand-red text-white font-black text-lg px-8 py-4 rounded-lg shadow-xl flex items-center justify-center gap-2 hover:bg-brand-dark transition-colors uppercase tracking-tight"
               >
-                Comprar Agora <ArrowRight size={20} />
+                Ver Ofertas <ArrowRight size={20} />
               </motion.button>
               <div className="flex items-center gap-2 text-brand-dark font-bold">
                 <div className="flex -space-x-2">

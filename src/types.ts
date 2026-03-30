@@ -10,6 +10,7 @@ export interface Product {
   description?: string;
   features?: string[];
   categoryId: string;
+  affiliateUrl: string;
 }
 
 export interface Category {

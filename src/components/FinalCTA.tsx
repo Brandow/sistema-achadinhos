@@ -24,12 +24,12 @@ export const FinalCTA: React.FC = () => {
           </div>
           
           <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase italic leading-tight">
-            Peça agora seus personalizados <br className="hidden md:block" />
-            <span className="text-brand-yellow">e receba super rápido!</span>
+            Não perca os melhores <br className="hidden md:block" />
+            <span className="text-brand-yellow">achadinhos de hoje!</span>
           </h2>
           
           <p className="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto font-medium">
-            Não perca tempo! Milhares de pessoas já transformaram seus momentos em presentes inesquecíveis. Garanta o seu com desconto exclusivo hoje.
+            Nossa equipe seleciona as melhores promoções para você não perder tempo procurando. Economize agora com nossos links exclusivos.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -38,7 +38,7 @@ export const FinalCTA: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto bg-brand-yellow text-brand-red font-black text-xl px-12 py-5 rounded-2xl shadow-xl flex items-center justify-center gap-2 hover:bg-white transition-all uppercase tracking-tight"
             >
-              Quero meu Desconto <ArrowRight size={20} />
+              Ver Todas as Ofertas <ArrowRight size={20} />
             </motion.button>
             <p className="text-sm font-bold opacity-80">
               *Válido para as próximas 24 horas

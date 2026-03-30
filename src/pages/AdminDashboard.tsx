@@ -73,7 +73,7 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-1">
             <div className="bg-brand-yellow text-brand-red font-black text-xl px-1.5 rounded-sm transform -skew-x-12">P</div>
-            <span className="font-black text-lg tracking-tighter uppercase italic">AdminJá</span>
+            <span className="font-black text-lg tracking-tighter uppercase italic">Achadinhos Admin</span>
           </div>
         </div>
 
@@ -88,7 +88,7 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
             onClick={() => setActiveTab('products')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-sm ${activeTab === 'products' ? 'bg-brand-red text-white' : 'text-gray-400 hover:bg-white/5'}`}
           >
-            <Package size={20} /> Produtos
+            <Package size={20} /> Achadinhos
           </button>
           <button 
             onClick={() => setActiveTab('categories')}
@@ -153,17 +153,17 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
               {/* Stats Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { label: 'Vendas Hoje', value: 'R$ 2.450,00', icon: DollarSign, color: 'text-green-600', bg: 'bg-green-100' },
-                  { label: 'Pedidos', value: '42', icon: ShoppingBag, color: 'text-blue-600', bg: 'bg-blue-100' },
-                  { label: 'Novos Clientes', value: '12', icon: Users, iconColor: 'text-purple-600', bg: 'bg-purple-100' },
-                  { label: 'Conversão', value: '3.2%', icon: TrendingUp, color: 'text-brand-red', bg: 'bg-red-100' },
+                  { label: 'Cliques Hoje', value: '1.240', icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-100' },
+                  { label: 'Cliques Totais', value: '15.420', icon: ShoppingBag, color: 'text-blue-600', bg: 'bg-blue-100' },
+                  { label: 'Novos Visitantes', value: '342', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100' },
+                  { label: 'Taxa de Clique', value: '8.2%', icon: TrendingUp, color: 'text-brand-red', bg: 'bg-red-100' },
                 ].map((stat, i) => (
                   <div key={i} className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
                     <div className="flex items-center justify-between mb-4">
                       <div className={`p-3 rounded-2xl ${stat.bg} ${stat.color}`}>
                         <stat.icon size={24} />
                       </div>
-                      <span className="text-[10px] font-black text-green-500 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+                      <span className="text-[10px] font-black text-green-500 bg-green-50 px-2 py-1 rounded-full">+15%</span>
                     </div>
                     <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">{stat.label}</p>
                     <h3 className="text-2xl font-black text-brand-dark mt-1">{stat.value}</h3>
@@ -174,25 +174,25 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
               {/* Recent Activity */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100">
-                  <h3 className="text-lg font-black text-brand-dark uppercase italic mb-6">Últimos Pedidos</h3>
+                  <h3 className="text-lg font-black text-brand-dark uppercase italic mb-6">Últimos Cliques</h3>
                   <div className="space-y-4">
                     {[1, 2, 3, 4].map(i => (
                       <div key={i} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
                         <div className="flex items-center gap-4">
                           <div className="w-10 h-10 bg-brand-yellow/20 rounded-full flex items-center justify-center text-brand-red font-bold">#</div>
                           <div>
-                            <p className="text-sm font-bold text-brand-dark">Pedido #1234{i}</p>
-                            <p className="text-xs text-gray-400">Há {i * 5} minutos</p>
+                            <p className="text-sm font-bold text-brand-dark">Clique em Achadinho #{i}</p>
+                            <p className="text-xs text-gray-400">Há {i * 2} minutos</p>
                           </div>
                         </div>
-                        <span className="text-sm font-black text-brand-red">R$ 149,90</span>
+                        <span className="text-sm font-black text-brand-red">Origem: Instagram</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100">
-                  <h3 className="text-lg font-black text-brand-dark uppercase italic mb-6">Produtos Populares</h3>
+                  <h3 className="text-lg font-black text-brand-dark uppercase italic mb-6">Achadinhos Populares</h3>
                   <div className="space-y-4">
                     {products.slice(0, 4).map(p => (
                       <div key={p.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
@@ -200,7 +200,7 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
                           <img src={p.image} className="w-10 h-10 rounded-lg object-cover" alt="" />
                           <div>
                             <p className="text-sm font-bold text-brand-dark line-clamp-1">{p.name}</p>
-                            <p className="text-xs text-gray-400">{p.reviews} vendas</p>
+                            <p className="text-xs text-gray-400">{p.reviews} cliques</p>
                           </div>
                         </div>
                         <ChevronRight size={18} className="text-gray-300" />
@@ -238,10 +238,10 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
                   <table className="w-full text-left">
                     <thead>
                       <tr className="bg-gray-50 text-[10px] font-black uppercase text-gray-400 tracking-widest">
-                        <th className="px-8 py-4">Produto</th>
+                        <th className="px-8 py-4">Achadinho</th>
                         <th className="px-8 py-4">Preço</th>
                         <th className="px-8 py-4">Status</th>
-                        <th className="px-8 py-4">Vendas</th>
+                        <th className="px-8 py-4">Cliques</th>
                         <th className="px-8 py-4 text-right">Ações</th>
                       </tr>
                     </thead>
@@ -332,7 +332,7 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
               <div className="space-y-6">
                 <div className="space-y-2">
                   <label className="text-xs font-black uppercase text-gray-400 tracking-widest">Nome da Loja</label>
-                  <input type="text" defaultValue="PersonalizaJá" className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-red font-medium" />
+                  <input type="text" defaultValue="Achadinhos do Dia" className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-red font-medium" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-black uppercase text-gray-400 tracking-widest">Cor Principal</label>
@@ -427,6 +427,18 @@ export const AdminDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout })
                     value={formData.image}
                     onChange={e => setFormData({ ...formData, image: e.target.value })}
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-red font-medium text-xs" 
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-black uppercase text-gray-400 tracking-widest">Link de Afiliado</label>
+                  <input 
+                    type="text" 
+                    value={formData.affiliateUrl}
+                    onChange={e => setFormData({ ...formData, affiliateUrl: e.target.value })}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-red font-medium text-xs" 
+                    placeholder="https://shopee.com.br/..."
                     required
                   />
                 </div>

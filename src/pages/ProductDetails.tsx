@@ -5,18 +5,14 @@ import { Product } from '../types';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { motion } from 'motion/react';
-import { Star, ShoppingCart, Truck, ShieldCheck, CreditCard, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { Star, ShoppingCart, Truck, ShieldCheck, CreditCard, ArrowLeft, CheckCircle2, ExternalLink } from 'lucide-react';
 
-interface ProductDetailsProps {
-  onAddToCart: (product: Product) => void;
-  cartCount: number;
-}
+interface ProductDetailsProps {}
 
-export const ProductDetails: React.FC<ProductDetailsProps> = ({ onAddToCart, cartCount }) => {
+export const ProductDetails: React.FC<ProductDetailsProps> = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
-  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const foundProduct = PRODUCTS.find(p => p.id === id);
@@ -29,9 +25,13 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ onAddToCart, car
 
   if (!product) return null;
 
+  const handleAffiliateClick = () => {
+    window.open(product.affiliateUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Header cartCount={cartCount} />
+      <Header cartCount={0} />
       
       <main className="flex-grow max-w-7xl mx-auto px-4 py-8 md:py-12">
         <button 
@@ -55,13 +55,6 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ onAddToCart, car
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className={`aspect-square rounded-2xl overflow-hidden border-2 cursor-pointer ${i === 0 ? 'border-brand-red' : 'border-gray-100'}`}>
-                  <img src={product.image} alt="" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
             </div>
           </motion.div>
 
@@ -105,58 +98,45 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ onAddToCart, car
                 </span>
               </div>
               <p className="text-brand-dark font-bold">
-                ou em até <span className="text-brand-red">10x de R$ {(product.price / 10).toFixed(2)}</span> sem juros
+                Preço promocional por tempo limitado!
               </p>
               <div className="mt-4 flex items-center gap-2 text-green-600 font-bold text-sm">
-                <CheckCircle2 size={18} /> Em estoque - Envio imediato
+                <CheckCircle2 size={18} /> Oferta Verificada - Link Seguro
               </div>
             </div>
 
             <div className="space-y-6 mb-8">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center border-2 border-gray-200 rounded-xl overflow-hidden">
-                  <button 
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-4 py-2 hover:bg-gray-100 font-bold text-xl transition-colors"
-                  >-</button>
-                  <span className="px-6 py-2 font-black text-lg border-x-2 border-gray-200">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-4 py-2 hover:bg-gray-100 font-bold text-xl transition-colors"
-                  >+</button>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => onAddToCart(product)}
-                  className="flex-1 bg-brand-red text-white font-black py-4 rounded-xl shadow-xl flex items-center justify-center gap-3 hover:bg-brand-dark transition-all uppercase tracking-tight"
-                >
-                  <ShoppingCart size={24} /> Comprar Agora
-                </motion.button>
-              </div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleAffiliateClick}
+                className="w-full bg-brand-red text-white font-black py-4 rounded-xl shadow-xl flex items-center justify-center gap-3 hover:bg-brand-dark transition-all uppercase tracking-tight"
+              >
+                <ExternalLink size={24} /> Ver Oferta no Site
+              </motion.button>
             </div>
 
             {/* Benefits Grid */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                <Truck size={24} className="mx-auto text-brand-red mb-2" />
-                <p className="text-[10px] font-black uppercase text-gray-400">Entrega</p>
-                <p className="text-[10px] font-bold text-brand-dark">Rápida</p>
+                <Star size={24} className="mx-auto text-brand-red mb-2" />
+                <p className="text-[10px] font-black uppercase text-gray-400">Melhor</p>
+                <p className="text-[10px] font-bold text-brand-dark">Preço</p>
               </div>
               <div className="text-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm">
                 <ShieldCheck size={24} className="mx-auto text-brand-red mb-2" />
-                <p className="text-[10px] font-black uppercase text-gray-400">Compra</p>
-                <p className="text-[10px] font-bold text-brand-dark">Segura</p>
+                <p className="text-[10px] font-black uppercase text-gray-400">Link</p>
+                <p className="text-[10px] font-bold text-brand-dark">Seguro</p>
               </div>
               <div className="text-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                <CreditCard size={24} className="mx-auto text-brand-red mb-2" />
-                <p className="text-[10px] font-black uppercase text-gray-400">Até 12x</p>
-                <p className="text-[10px] font-bold text-brand-dark">S/ Juros</p>
+                <CheckCircle2 size={24} className="mx-auto text-brand-red mb-2" />
+                <p className="text-[10px] font-black uppercase text-gray-400">Oferta</p>
+                <p className="text-[10px] font-bold text-brand-dark">Verificada</p>
               </div>
             </div>
 
             <div className="border-t border-gray-100 pt-8">
-              <h3 className="text-lg font-black text-brand-dark uppercase italic mb-4">Descrição do Produto</h3>
+              <h3 className="text-lg font-black text-brand-dark uppercase italic mb-4">Sobre este Achadinho</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 {product.description}
               </p>

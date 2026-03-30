@@ -8,12 +8,9 @@ import { ProductCard } from '../components/ProductCard';
 import { motion } from 'motion/react';
 import { ArrowLeft, Filter, SlidersHorizontal } from 'lucide-react';
 
-interface CategoryPageProps {
-  onAddToCart: (product: Product) => void;
-  cartCount: number;
-}
+interface CategoryPageProps {}
 
-export const CategoryPage: React.FC<CategoryPageProps> = ({ onAddToCart, cartCount }) => {
+export const CategoryPage: React.FC<CategoryPageProps> = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [category, setCategory] = useState<Category | null>(null);
@@ -34,7 +31,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ onAddToCart, cartCou
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Header cartCount={cartCount} />
+      <Header cartCount={0} />
       
       <main className="flex-grow">
         {/* Category Header */}
@@ -89,7 +86,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ onAddToCart, cartCou
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <ProductCard product={product} onAddToCart={onAddToCart} />
+                  <ProductCard product={product} />
                 </motion.div>
               ))}
             </div>

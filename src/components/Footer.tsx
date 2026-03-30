@@ -11,11 +11,11 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-1 mb-6">
-              <div className="bg-brand-yellow text-brand-red font-black text-2xl px-2 rounded-sm transform -skew-x-12">P</div>
-              <span className="font-black text-xl tracking-tighter uppercase italic">PersonalizaJá</span>
+              <div className="bg-brand-yellow text-brand-red font-black text-2xl px-2 rounded-sm transform -skew-x-12">A</div>
+              <span className="font-black text-xl tracking-tighter uppercase italic">Achadinhos do Dia</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Sua loja número 1 em produtos personalizados. Qualidade premium, entrega rápida e atendimento humanizado para transformar suas ideias em realidade.
+              Sua curadoria diária dos melhores achadinhos da internet. Selecionamos as melhores ofertas, promoções e cupons para você economizar de verdade.
             </p>
             <div className="flex items-center gap-4">
               <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-brand-red transition-colors"><Instagram size={20} /></a>
@@ -46,15 +46,11 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4 text-gray-400 text-sm font-medium">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-brand-red shrink-0" />
-                <span>Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone size={20} className="text-brand-red shrink-0" />
-                <span>(11) 4002-8922</span>
+                <span>São Paulo - SP, Brasil</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-brand-red shrink-0" />
-                <span>contato@personalizaja.com.br</span>
+                <span>contato@achadinhosdodia.com.br</span>
               </li>
             </ul>
           </div>
@@ -62,7 +58,7 @@ export const Footer: React.FC = () => {
           {/* Newsletter */}
           <div>
             <h4 className="font-black text-lg uppercase mb-6 border-b-2 border-brand-red inline-block">Newsletter</h4>
-            <p className="text-gray-400 text-sm mb-4">Receba ofertas exclusivas e novidades em primeira mão.</p>
+            <p className="text-gray-400 text-sm mb-4">Receba os melhores achadinhos e cupons exclusivos em primeira mão.</p>
             <form className="space-y-2">
               <input 
                 type="email" 
@@ -77,24 +73,14 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-wrap justify-center gap-4">
-            <div className="bg-white/5 p-1 rounded px-2 flex items-center gap-2">
-              <CreditCard size={16} className="text-gray-400" />
-              <span className="text-[10px] font-bold text-gray-400 uppercase">Formas de Pagamento</span>
-            </div>
-            <div className="flex items-center gap-2 opacity-50">
-               <span className="text-xs font-bold">VISA</span>
-               <span className="text-xs font-bold">MASTERCARD</span>
-               <span className="text-xs font-bold">PIX</span>
-               <span className="text-xs font-bold">BOLETO</span>
+            <div className="flex items-center gap-2 bg-green-900/30 text-green-400 px-3 py-1.5 rounded-lg border border-green-900/50">
+              <ShieldCheck size={16} />
+              <span className="text-[10px] font-bold uppercase">Links Verificados</span>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 bg-green-900/30 text-green-400 px-3 py-1.5 rounded-lg border border-green-900/50">
-              <ShieldCheck size={16} />
-              <span className="text-[10px] font-bold uppercase">Site Seguro</span>
-            </div>
-            <p className="text-[10px] text-gray-500 font-medium">© 2024 PersonalizaJá. Todos os direitos reservados.</p>
+            <p className="text-[10px] text-gray-500 font-medium">© 2026 Achadinhos do Dia. Todos os direitos reservados.</p>
           </div>
         </div>
       </div>

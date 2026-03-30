@@ -1,16 +1,20 @@
 import React from 'react';
 import { Product } from '../types';
-import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { Star, ExternalLink, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 
 interface ProductCardProps {
   product: Product;
-  onAddToCart: (product: Product) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const navigate = useNavigate();
+
+  const handleAffiliateClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(product.affiliateUrl, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <motion.div 
@@ -44,13 +48,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
 
         <div className="absolute bottom-0 left-0 w-full p-3 translate-y-full group-hover:translate-y-0 transition-transform bg-white/90 backdrop-blur-sm hidden md:block">
            <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              onAddToCart(product);
-            }}
+            onClick={handleAffiliateClick}
             className="w-full bg-brand-red text-white font-bold py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-brand-dark transition-colors text-sm"
            >
-             <ShoppingCart size={16} /> Adicionar
+             <ExternalLink size={16} /> Ver Oferta
            </button>
         </div>
       </div>
@@ -80,17 +81,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
               <span className="text-sm">,{product.price.toFixed(2).split('.')[1]}</span>
             </span>
           </div>
-          <p className="text-[10px] text-gray-500 font-medium">ou 10x de R$ {(product.price / 10).toFixed(2)}</p>
+          <p className="text-[10px] text-gray-500 font-medium">Preço sujeito a alteração</p>
         </div>
 
         <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            onAddToCart(product);
-          }}
+          onClick={handleAffiliateClick}
           className="md:hidden w-full mt-4 bg-brand-red text-white font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm"
         >
-          <ShoppingCart size={16} /> Comprar
+          <ExternalLink size={16} /> Ver Oferta
         </button>
       </div>
     </motion.div>

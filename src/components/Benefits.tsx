@@ -5,26 +5,26 @@ export const Benefits: React.FC = () => {
   const items = [
     {
       icon: Zap,
-      title: 'Produção Rápida',
-      desc: 'Seu pedido pronto em tempo recorde.',
+      title: 'Ofertas Diárias',
+      desc: 'Novos achadinhos todos os dias.',
       color: 'bg-yellow-100 text-yellow-600'
     },
     {
       icon: ThumbsUp,
-      title: 'Qualidade Garantida',
-      desc: 'Materiais premium e impressão HD.',
+      title: 'Curadoria Real',
+      desc: 'Produtos testados e aprovados.',
       color: 'bg-red-100 text-red-600'
     },
     {
       icon: ShieldCheck,
-      title: 'Compra Segura',
-      desc: 'Seus dados protegidos do início ao fim.',
+      title: 'Links Seguros',
+      desc: 'Redirecionamento para sites oficiais.',
       color: 'bg-blue-100 text-blue-600'
     },
     {
       icon: Users,
-      title: 'Atendimento Humano',
-      desc: 'Suporte real para tirar suas dúvidas.',
+      title: 'Comunidade',
+      desc: 'Milhares de pessoas economizando.',
       color: 'bg-green-100 text-green-600'
     }
   ];
